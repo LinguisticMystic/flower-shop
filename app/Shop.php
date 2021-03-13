@@ -1,5 +1,9 @@
 <?php
 
+namespace App;
+
+use App\Suppliers\InventoryInterface;
+
 class Shop
 {
     private string $name;

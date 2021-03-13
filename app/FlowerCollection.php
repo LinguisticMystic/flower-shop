@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class FlowerCollection
 {
     private array $flowers = [];

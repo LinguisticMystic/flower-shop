@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class Flower
 {
     private string $name;

@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Suppliers;
+
+use App\Flower;
+use App\FlowerCollection;
+
 class Courier implements InventoryInterface
 {
     private string $flowerType;

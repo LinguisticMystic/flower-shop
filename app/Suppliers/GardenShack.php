@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Suppliers;
+
+use App\Flower;
+use App\FlowerCollection;
+
 class GardenShack implements InventoryInterface
 {
     private array $inventory = [];

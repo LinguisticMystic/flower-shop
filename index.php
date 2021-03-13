@@ -2,15 +2,14 @@
 
 require_once 'vendor/autoload.php';
 
-echo 'Hello World!<br><br>';
+use App\Shop;
+use App\Flower;
+use App\FlowerCollection;
+use App\Suppliers\Courier;
+use App\Suppliers\GardenShack;
+use App\Suppliers\Warehouse;
 
-require_once 'app/InventoryInterface.php';
-require_once 'app/suppliers/Courier.php';
-require_once 'app/suppliers/GardenShack.php';
-require_once 'app/suppliers/Warehouse.php';
-require_once 'app/Flower.php';
-require_once 'app/FlowerCollection.php';
-require_once 'app/Shop.php';
+echo 'Hello World!<br><br>';
 
 $myShop = new Shop('Feminist Flower Shop');
 
@@ -86,7 +85,12 @@ $choiceAmount = 2;
 $myShop->removeFromInventory($choiceFlower, $choiceAmount);
 $cost = $myShop->getPrices()[$choiceFlower];
 
-echo '<br>YOU HAVE TO PAY €';
+echo "<br>You chose $choiceAmount {$choiceFlower}";
+if ($choiceAmount > 1) {
+    echo 's';
+}
+
+echo '<br>BECAUSE YOU ARE A WOMAN YOU HAVE TO PAY A REDUCED PRICE OF €';
 if ($gender === 'female') {
     echo number_format(($cost - ($cost * 20 / 100)) / 100 * $choiceAmount, 2);
 } else {

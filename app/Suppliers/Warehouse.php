@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Suppliers;
+
+use App\FlowerCollection;
+
 class Warehouse implements InventoryInterface
 {
     private FlowerCollection $flowerInventory;
