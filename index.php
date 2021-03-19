@@ -7,6 +7,7 @@ use App\Flower;
 use App\FlowerCollection;
 use App\Suppliers\Courier;
 use App\Suppliers\GardenShack;
+use App\Suppliers\SQLSupply;
 use App\Suppliers\Warehouse;
 
 
@@ -70,6 +71,15 @@ foreach ($csvFileContents as $flower => $amount) {
     $supplierTwo->addFlower($flower, $amount);
 }
 
+$supplierFour = new SQLSupply();
+$supplierFour->addFlowerArray([
+    new Flower('tulip', 100),
+    new Flower('rose', 140),
+    new Flower('carnation', 3),
+]);
+
+// Add SQL contents to supplierFour's inventory
+$supplierFour->addDataBaseFlowers();
 
 function printShopAssortment(Shop $shop): void
 {
@@ -102,6 +112,7 @@ printShopAssortment($myShop);
 $myShop->mergeShipmentWithInventory($supplierOne->shipment());
 $myShop->mergeShipmentWithInventory($supplierTwo->shipment());
 $myShop->mergeShipmentWithInventory($supplierThree->shipment());
+$myShop->mergeShipmentWithInventory($supplierFour->shipment());
 
 echo '<br><br>Shop inventory after shipment and merge:<br>';
 printShopAssortment($myShop);

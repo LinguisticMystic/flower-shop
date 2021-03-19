@@ -1,6 +1,8 @@
 {
     "name": "aija/flower-shop",
-    "require": {},
+    "require": {
+        "catfan/medoo": "^1.7"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
